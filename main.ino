@@ -7,17 +7,17 @@
   - Plays back using TMRpcm
 */
 
-#include <SPI.h>
-#include <SD.h>
-#include <TMRpcm.h>
+#include <SPI.h>    // SPI communication with SD card
+#include <SD.h>     // SD card file handling
+#include <TMRpcm.h> // Audio playback from SD
 
-TMRpcm audio;
-File wavFile;
+TMRpcm audio; // for playback
+File wavFile; // file handle for SD card
 
-const int chipSelect = 10; // SD CS
-const int analogPins[] = {A1, A2, A3, A4};
+const int chipSelect = 10;                 // SD Card chip select pin
+const int analogPins[] = {A1, A2, A3, A4}; // Analog input pins
 const int numPins = 4;
-const int speakerPin = 9; // TMRpcm speaker
+const int speakerPin = 9; // TMRpcm speaker Output Pin
 
 // Config
 #define SAMPLE_RATE 4000 // Hz
@@ -25,7 +25,10 @@ const int speakerPin = 9; // TMRpcm speaker
 #define CHANNELS 1
 const unsigned long RECORD_SECONDS = 8;
 
-// Visualization settings
+//// Visualization settings for printing in the serial monitor
+// Every 150 ms prints waveform bars.
+// Every 500 ms prints estimated frequency.
+// Keeps a 32-sample rolling buffer for RMS and peak calculations.
 const unsigned int VIZ_WIDTH = 48;
 const unsigned long VIZ_INTERVAL_MS = 150;
 const unsigned long FREQ_REPORT_MS = 500;
@@ -36,6 +39,7 @@ byte waveBuffer[ANALYZER_BUFFER];
 int waveIndex = 0;
 
 // Function declarations
+// These write the WAV file header in standard PCM format before and after recording.
 void writeWavHeader(File &file, unsigned long sampleRate, int bitsPerSample, int channels, unsigned long dataSize);
 void updateWavHeader(File &file, unsigned long dataSize);
 

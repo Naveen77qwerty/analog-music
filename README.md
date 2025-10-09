@@ -82,6 +82,24 @@ Est. freq: 120.3 Hz
 
 ---
 
+## C Concepts Used
+
+- Concept	Example / Explanation
+- Variables & Constants	const, #define, global variables
+- Arrays	const int analogPins[] = {A1, A2, A3, A4};
+-  Loops	for and while used extensively
+- Conditionals	if (!SD.begin(chipSelect)) ...
+- Functions	writeWavHeader(), updateWavHeader(), modularized code
+- Pointers & References	File &file passed by reference
+- Structures from Libraries	File (SD library), TMRpcm (object with methods)
+- Type Casting	(byte *)&chunkSize, (int)waveBuffer[i]
+- Bitwise & Binary Representation	Writing raw bytes to SD card for WAV header
+- Timing Functions	millis(), micros() — to control precise sampling
+- Floating Point Math	sqrt(), division for RMS calculation
+- Strings and Character Arrays	Using "RIFF" and String line = ""
+- I/O Streams	Serial communication for logs
+- Scope & Lifetime	Local vs global variables, loop control
+
 ## Notes
 
 - WAV file format: 8-bit PCM, mono.
