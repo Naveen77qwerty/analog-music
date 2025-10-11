@@ -1,4 +1,4 @@
-# Multi-Input Signal Recorder
+# Electric Signals To Music Convertor
 
 This Arduino project that gets multiple analog inputs, mixes them into a single waveform, saves it as a WAV file on an SD card, visualizes the waveform in ASCII in the Serial Monitor, and plays back the recorded audio using a speaker.
 
@@ -108,3 +108,9 @@ Est. freq: 120.3 Hz
 - Ensure speaker and TMRpcm volume are set properly to avoid distortion.
 - Don't use this as it won't work for you guys....
 ---
+
+## Contributors
+- [Arham Garg](https://github.com/arhamgarg)
+- [A Adithyan](https://github.com/Cirutuu)
+- [S S Naveen](https://github.com/Naveen77qwerty)
+- [H Dharshan](https://github.com/Dharshan2208)
